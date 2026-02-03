@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For My Bubu 💖</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(#ff9a9e, #fad0c4);
+      text-align: center;
+      padding: 25px;
+      color: #7a003c;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .page { display: none; }
+    .active { display: block; }
+
+    img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 20px;
+      margin: 20px 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 26px;
+      margin: 10px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .yes { background: #ff4d6d; color: white; }
+    .no { background: #e0e0e0; }
+
+    .heart { font-size: 42px; }
+
+    /* Floating hearts */
+    .heart-float {
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 3s ease-in forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-300px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MUSIC -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/7cQ2Zl1RjvU?autoplay=1&loop=1&playlist=7cQ2Zl1RjvU"
+frameborder="0" allow="autoplay"></iframe>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>💖 Will you be my Valentine, Bubu? 💖</h1>
+  <button class="yes" onclick="goToPage(2)">Yes 😍</button>
+  <button class="no" id="noBtn">No 🙃</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <h1>🥹 My heart already knew it…</h1>
+  <img src="photo.jpg" alt="Our photo">
+  <p>Do you promise to be my Valentine forever?</p>
+  <button class="yes" onclick="goToPage(3)">Yes, forever ❤️</button>
+  <button class="yes" onclick="goToPage(3)">Obviously Bubika 😌</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <h1 class="heart">🥰</h1>
+  <p><strong>Bubua ko Bubika se, Bubika ko Bubua se kya hai??</strong></p>
+  <p><em>Pyaar hai… pyaar hai 🫣😘😘</em></p>
+  <p>Happy Valentine’s Day<br>Love — <strong>Bubika 💕</strong></p>
+</div>
+
+<script>
+/* PAGE NAVIGATION */
+function goToPage(n) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + n).classList.add('active');
+  if(n === 3) startHearts(); // start floating hearts on final page
+}
+
+/* NO BUTTON DODGE */
+const noBtn = document.getElementById("noBtn");
+noBtn.onmouseover = () => {
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+};
+
+/* FLOATING HEARTS */
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart-float');
+  heart.textContent = '💖';
+  heart.style.left = Math.random() * window.innerWidth + 'px';
+  heart.style.fontSize = (12 + Math.random() * 24) + 'px';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 3000);
+}
+
+let heartInterval;
+function startHearts() {
+  heartInterval = setInterval(createHeart, 500);
+}
+
+// Optional: stop hearts if leaving page 3
+function stopHearts() {
+  clearInterval(heartInterval);
+}
+</script>
+
+</body>
+</html>
