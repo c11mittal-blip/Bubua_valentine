@@ -82,17 +82,46 @@ frameborder="0" allow="autoplay"></iframe>
 <div class="page" id="page3">
   <h1 class="heart">🥰</h1>
   <p><strong>Bubua ko Bubika se, Bubika ko Bubua se kya hai??</strong></p>
-  <p><em>Pyaar hai… pyaar hai 🫣😘😘</em></p>
-  <p>Happy Valentine’s Day<br>Love — <strong>Bubika 💕</strong></p>
+  <p><em>Pyaar hai… pyaar hai 😘😘😘</em></p>
+  <p>Happy Valentine’s Day<br>Love – <strong>Bubika 💕</strong></p>
+
+  <button class="yes" onclick="goToPage(4)">
+    Read my letter 💌
+  </button>
 </div>
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+  <h1>💌 My Letter to You</h1>
+
+  <p>
+    My Bubu is in India, so far away,<br>
+    I’m happy you’re with family on this day.<br><br>
+
+    We had some fights and a little bad time,<br>
+    But you are still my partner in crime.<br><br>
+
+    I miss your smell and I miss your kiss,<br>
+    It’s your warm hug that I really miss.<br><br>
+
+    Four years together, and I still care,<br>
+    I’ll always be here, I’ll always be there.<br><br>
+
+    I see us married and living so bright,<br>
+    With our sweet baby, our little “Light.”<br><br>
+
+    I love you the most, my heart is true,<br>
+    Happy Valentine’s Day from Bubika to you ❤️
+  </p>
+</div>
+
+
 
 <script>
 /* PAGE NAVIGATION */
 function goToPage(n) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page' + n).classList.add('active');
-  if(n === 3) startHearts(); // start floating hearts on final page
-}
+  if (n === 3 || n === 4) startHearts(); // start floating hearts on final page}
 
 /* NO BUTTON DODGE */
 const noBtn = document.getElementById("noBtn");
