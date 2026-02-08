@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <title>For My Bubu 💖</title>
@@ -121,7 +121,13 @@ frameborder="0" allow="autoplay"></iframe>
 function goToPage(n) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page' + n).classList.add('active');
-  if (n === 3 || n === 4) startHearts(); // start floating hearts on final page}
+
+  stopHearts(); // stop hearts when changing pages
+
+  if (n === 3 || n === 4) {
+    startHearts(); // hearts only on page 3 & 4
+  }
+}
 
 /* NO BUTTON DODGE */
 const noBtn = document.getElementById("noBtn");
